@@ -10,7 +10,7 @@ int search(int numbers[], int low, int high, int value)
     }
     
     //calculating the middle number to perform the binary search
-    int midVal = low + (high - low) / 2;
+    int midVal = low + (high - low)/ 2;
     
     //special case just to check if the middle value is the desired value
     if (numbers[midVal] == value) {
