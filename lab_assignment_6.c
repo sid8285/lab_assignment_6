@@ -1,8 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+
+	 //testing to see if the value is actually in the array
+    if (low > high || high < low) {
+        return -1;
+    }
+    
+    //calculating the middle number to perform the binary search
+    int midVal = low + (high - low) / 2;
+    
+    //special case just to check if the middle value is the desired value
+    if (numbers[midVal] == value) {
+        return midVal;
+    }
+    //re-arranging the search if the desired value is less than the middle value calculated
+    else if (value < numbers[midVal]) {
+        return search(numbers, low, midVal - 1, value);
+    }
+    //re-arranging the search if the desired value is greater than the middle value calculated
+    else {
+        return search(numbers, midVal + 1, high, value);
+    }
 }
 
 void printArray(int numbers[], int sz)
